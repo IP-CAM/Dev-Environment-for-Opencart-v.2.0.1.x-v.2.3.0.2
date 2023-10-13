@@ -24,6 +24,8 @@ COPY docker/http/mods-available/dir.conf /etc/apache2/mods-available/dir.conf
 
 WORKDIR /var/www/html
 
+RUN chown -Rf www-data:www-data /var/www/html
+
 # Install Zsh to make life easier using https://github.com/deluan/zsh-in-docker
 RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.3/zsh-in-docker.sh)" -- -t evan
 COPY docker/http/.zshrc* /root/
