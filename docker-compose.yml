@@ -13,8 +13,6 @@ services:
             - ./opencart/upload:/var/www/html/
         networks:
             - opencart_network
-        depends_on:
-            - mysql
     mysql:
         container_name: opencart_mysql
         platform: ${DOCKER_PLATFORM:-linux/amd64}
