@@ -21,8 +21,8 @@ COPY docker/http/apache2/mods-available/dir.conf /etc/apache2/mods-available/dir
 RUN usermod -u 1000 www-data;
 
 # ### install composer
-# RUN cd ~; php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"; \
-#     php composer-setup.php --install-dir=/usr/local/bin --filename=composer;
+RUN cd ~; php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"; \
+    php composer-setup.php --install-dir=/usr/local/bin --filename=composer;
 
 WORKDIR /var/www/html
 
