@@ -57,3 +57,6 @@ www/vendor
 
 # IDE Project files
 /opencart/.idea
+
+opencart/upload/admin/config.php
+opencart/upload/config.php
