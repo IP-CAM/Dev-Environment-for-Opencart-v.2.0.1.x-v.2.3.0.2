@@ -38,6 +38,7 @@ services:
             PMA_HOST: ${WSL_HOSTNAME}
             PMA_USER: ${MYSQL_USERNAME}
             PMA_PASSWORD: ${MYSQL_PASSWORD}
+            UPLOAD_LIMIT: 300M
     mailhog:
         container_name: opencart2011_mailhog
         platform: ${DOCKER_PLATFORM:-linux/amd64}
