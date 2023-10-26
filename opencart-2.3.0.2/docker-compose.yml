@@ -10,7 +10,7 @@ services:
         ports:
             - '${FORWARD_HTTP_PORT:-80}:80'
         volumes:
-            - ./opencart/upload:/var/www/localhost/
+            - ./opencart/upload:/var/www/html/
         networks:
             - opencart2302_network
     mysql:
