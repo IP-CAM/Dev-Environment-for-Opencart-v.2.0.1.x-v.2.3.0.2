@@ -28,6 +28,8 @@ www/vendor
 /opencart/upload/image/templates/default.jpg
 
 # Download Files
+/opencart/upload/system/download/*
+!/opencart/upload/system/download/index.html
 /opencart/upload/system/storage/download/*
 !/opencart/upload/system/storage/download/index.html
 
