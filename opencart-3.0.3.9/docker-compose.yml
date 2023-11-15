@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+    http:
+        container_name: opencart3039_http
+        platform: ${DOCKER_PLATFORM:-linux/amd64}
+        build:
+            context: .
+            dockerfile: ./docker/http/Dockerfile
+        ports:
+            - '${FORWARD_HTTP_PORT:-80}:80'
+        volumes:
+            - ./opencart:/var/www/
+        networks:
+            - opencart3039_network
+    mysql:
+        container_name: opencart3039_mysql
+        platform: ${DOCKER_PLATFORM:-linux/amd64}
+        image: mysql:5.7
+        ports:
+            - '${FORWARD_MYSQL_PORT:-3306}:3306'
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_USER: ${MYSQL_USERNAME}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+        volumes:
+            - ./data/mysql:/var/lib/mysql
+        networks:
+            - opencart3039_network
+    phpmyadmin:
+        container_name: opencart3039_phpmyadmin
+        platform: ${DOCKER_PLATFORM:-linux/amd64}
+        image: phpmyadmin:5.2.1
+        ports:
+            - '${FORWARD_PHPMYADMIN_PORT:-3380}:80'
+        environment:
+            PMA_HOST: ${WSL_HOSTNAME}:${FORWARD_MYSQL_PORT:-3306}
+            PMA_USER: ${MYSQL_USERNAME}
+            PMA_PASSWORD: ${MYSQL_PASSWORD}
+            UPLOAD_LIMIT: 300M
+    mailhog:
+        container_name: opencart3039_mailhog
+        platform: ${DOCKER_PLATFORM:-linux/amd64}
+        image: mailhog/mailhog
+        logging:
+            driver: 'none'
+        ports:
+            - ${FORWARD_MAILHOG_SMTP_PORT:-1025}:1025
+            - ${FORWARD_MAILHOG_WEB_PORT:-8025}:8025
+        networks:
+            - opencart3039_network
+networks:
+    opencart3039_network:
+        driver: bridge

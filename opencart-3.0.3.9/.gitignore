@@ -1,0 +1,77 @@
+.env
+data
+docker/http/.zshrc
+www/vendor
+
+# Config and Htaccess Files
+/opencart/html/.htaccess
+/opencart/html/config.php
+/opencart/html/admin/config.php
+
+# Image File
+!/opencart/html/image/no_image.jpg
+
+# Image Cache Files
+/opencart/html/image/cache/*
+!/opencart/html/image/cache/index.html
+
+/opencart/html/image/catalog/*
+!/opencart/html/image/catalog/index.html
+
+# System Cache Files
+/opencart/storage/cache/*
+!/opencart/storage/cache/index.html
+/opencart/html/storage/cache/*
+!/opencart/html/storage/cache/index.html
+/opencart/html/system/storage/cache/*
+!/opencart/html/system/storage/cache/index.html
+
+# Modification Files
+/opencart/html/system/storage/modification/*
+!/opencart/html/system/storage/modification/index.html
+
+# Templates Files
+/opencart/html/image/templates/*
+/opencart/html/image/templates/default.jpg
+
+# Download Files
+/opencart/html/system/storage/download/*
+!/opencart/html/system/storage/download/index.html
+
+# Upload Files
+/opencart/html/system/storage/html/*
+!/opencart/html/system/storage/html/index.html
+
+# Session files
+/opencart/html/storage/session/*
+!/opencart/html/storage/session/index.html
+/opencart/html/system/storage/session/*
+!/opencart/html/system/storage/session/index.html
+
+# Flags
+# remove sharp char if you want to add flags to gitignore
+# /html/flags/*
+
+# Log Files
+/opencart/html/storage/logs/*
+!/opencart/html/storage/logs/index.html
+/opencart/html/system/storage/logs/*
+!/opencart/html/system/storage/logs/index.html
+
+# If you want to ignore install file use following lines [on development mode]
+# /html/backup.install/*
+# /html/install/*
+
+# Ignore all vendor files included by composer and the lock file
+/opencart/tests/phpunit/vendor/*
+/opencart/tests/phpunit/composer.lock
+/opencart/vendor/*
+
+# Test Config File
+/opencart/tests/phpunit/bootstrap.php
+
+# IDE Project files
+/opencart/.idea
+
+opencart/html/admin/config.php
+opencart/html/config.php
