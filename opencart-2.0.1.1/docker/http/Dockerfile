@@ -12,14 +12,13 @@ RUN add-apt-repository ppa:ondrej/php
 RUN apt update && apt install -y apache2 wget php5.6 libapache2-mod-php5.6
 
 # Install php extensions
-RUN apt update && apt install -y php5.6-mysql php5.6-curl php5.6-gd php5.6-mcrypt php5.6-zip php5.6-xml
+RUN apt update && apt install -y php5.6-mysql php5.6-curl php5.6-gd php5.6-mcrypt php5.6-zip php5.6-xml php5.6-mbstring
 
 ## Apache setup
 COPY docker/http/apache2/mods-available/dir.conf /etc/apache2/mods-available/dir.conf
 COPY docker/http/apache2/sites-available/localhost.conf /etc/apache2/sites-available/localhost.conf
 
-RUN a2enmod rewrite
-RUN a2enmod headers
+RUN a2enmod rewrite headers expires
 RUN a2dissite 000-default
 RUN a2ensite localhost
 
