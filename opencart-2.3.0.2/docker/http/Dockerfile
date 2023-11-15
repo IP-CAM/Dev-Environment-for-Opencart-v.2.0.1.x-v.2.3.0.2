@@ -18,8 +18,7 @@ RUN apt update && apt install -y php7.2-mysql php7.2-curl php7.2-gd php7.2-mcryp
 COPY docker/http/apache2/mods-available/dir.conf /etc/apache2/mods-available/dir.conf
 COPY docker/http/apache2/sites-available/localhost.conf /etc/apache2/sites-available/localhost.conf
 
-RUN a2enmod rewrite
-RUN a2enmod headers
+RUN a2enmod rewrite headers expires
 RUN a2dissite 000-default
 RUN a2ensite localhost
 
